@@ -1,6 +1,8 @@
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollArea } from "~/components/ui/scroll-area";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,12 +17,12 @@ const PARALLAX_ROWS = [
 export function TextParallaxEffect() {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    const scroller = scrollerRef.current;
+  useGSAP(() => {
+    const viewport = scrollerRef.current?.querySelector(
+      "[data-radix-scroll-area-viewport]",
+    ) as HTMLElement;
 
-    if (!scroller) {
-      return;
-    }
+    if (!viewport) return;
 
     const ctx = gsap.context(() => {
       const rows = gsap.utils.toArray<HTMLElement>(".parallax-item");
@@ -36,27 +38,23 @@ export function TextParallaxEffect() {
             ease: "none",
             scrollTrigger: {
               trigger: row,
-              scroller,
+              scroller: viewport,
               start: "top bottom",
               end: "bottom top",
+              markers: true,
               scrub: true,
             },
           },
         );
       });
-    }, scroller);
+    }, scrollerRef);
 
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
     <div className="h-[calc(100vh-4rem)] overflow-hidden">
-      <div
-        ref={scrollerRef}
-        className="h-full overflow-y-auto bg-zinc-100 w-full"
-      >
+      <ScrollArea ref={scrollerRef} className="h-full bg-zinc-100 w-full">
         <section className="grid h-[95svh] place-items-center px-4 text-center text-xl text-zinc-800">
           <p>Scroll for a text parallax demo</p>
         </section>
@@ -81,7 +79,7 @@ export function TextParallaxEffect() {
         </section>
 
         <section className="h-[95svh] px-4"></section>
-      </div>
+      </ScrollArea>
     </div>
   );
 }
