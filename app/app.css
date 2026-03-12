@@ -143,27 +143,3 @@ body {
 		@apply font-sans;
 	}
 }
-
-@layer components {
-
-	.effect-scroll-area {
-		@apply h-full overflow-y-auto bg-zinc-100;
-	}
-
-	.effect-intro,
-	.effect-outro {
-		@apply grid h-[95svh] place-items-center px-4 text-center text-xl text-zinc-800;
-	}
-
-	.parallax-track {
-		@apply grid min-h-[130svh] content-center gap-8 overflow-hidden bg-zinc-100 py-20;
-	}
-
-	.parallax-row-shell {
-		@apply overflow-hidden border-y border-zinc-300/80;
-	}
-
-	.parallax-row-text {
-		@apply whitespace-nowrap py-3 text-[clamp(1.75rem,5vw,4rem)] font-semibold tracking-tight text-zinc-900;
-	}
-}

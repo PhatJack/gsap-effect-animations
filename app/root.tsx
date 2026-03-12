@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { Loader2 } from "lucide-react";
+import Header from "./components/header";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -32,8 +34,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
-        {children}
+      <body className="overflow-y-auto">
+        <Header />
+        <main className="overflow-y-auto">{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -71,5 +74,13 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
+  );
+}
+
+export function HydrateFallback() {
+  return (
+    <div className="text-center p-6">
+      <Loader2 className="animate-spin" size={32} />
+    </div>
   );
 }

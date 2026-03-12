@@ -23,16 +23,16 @@ export function TextParallaxEffect() {
     }
 
     const ctx = gsap.context(() => {
-      const rows = gsap.utils.toArray<HTMLElement>("[data-parallax-row]");
+      const rows = gsap.utils.toArray<HTMLElement>(".parallax-item");
 
       rows.forEach((row, index) => {
         const direction = index % 2 === 0 ? -1 : 1;
 
         gsap.fromTo(
           row,
-          { xPercent: 10 * direction },
+          { xPercent: 20 * direction },
           {
-            xPercent: -10 * direction,
+            xPercent: -20 * direction,
             ease: "none",
             scrollTrigger: {
               trigger: row,
@@ -41,7 +41,7 @@ export function TextParallaxEffect() {
               end: "bottom top",
               scrub: true,
             },
-          }
+          },
         );
       });
     }, scroller);
@@ -52,24 +52,36 @@ export function TextParallaxEffect() {
   }, []);
 
   return (
-    <div ref={scrollerRef} className="effect-scroll-area">
-      <section className="effect-intro">
-        <p>Scroll for a text parallax demo</p>
-      </section>
+    <div className="h-[calc(100vh-4rem)] overflow-hidden">
+      <div
+        ref={scrollerRef}
+        className="h-full overflow-y-auto bg-zinc-100 w-full"
+      >
+        <section className="grid h-[95svh] place-items-center px-4 text-center text-xl text-zinc-800">
+          <p>Scroll for a text parallax demo</p>
+        </section>
 
-      <section className="parallax-track" aria-label="Text parallax lines">
-        {PARALLAX_ROWS.map((rowText, index) => (
-          <div key={`${rowText}-${index}`} className="parallax-row-shell">
-            <p data-parallax-row className="parallax-row-text">
-              {rowText}
-            </p>
-          </div>
-        ))}
-      </section>
+        <section
+          aria-label="Text parallax lines"
+          className="grid min-h-[130svh] content-center overflow-hidden bg-zinc-100 py-20"
+        >
+          {PARALLAX_ROWS.map((rowText, index) => (
+            <div
+              key={`${rowText}-${index}`}
+              className="parallax-item overflow-hidden border-y border-zinc-300/80"
+            >
+              <p
+                data-parallax-row
+                className="whitespace-nowrap py-3 text-[clamp(1.75rem,5vw,4rem)] font-semibold tracking-tight text-zinc-900"
+              >
+                {rowText}
+              </p>
+            </div>
+          ))}
+        </section>
 
-      <section className="effect-outro">
-        <p>Thay doi effect o phan select de xem demo khac.</p>
-      </section>
+        <section className="h-[95svh] px-4"></section>
+      </div>
     </div>
   );
 }
