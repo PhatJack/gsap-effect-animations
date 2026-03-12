@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { Loader2 } from "lucide-react";
 import Header from "./components/header";
+import { ScrollArea } from "./components/ui/scroll-area";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -79,8 +80,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
 export function HydrateFallback() {
   return (
-    <div className="text-center p-6">
+    <div className="flex flex-col justify-center items-center gap-4 p-6 w-full">
       <Loader2 className="animate-spin" size={32} />
+      <span>Loading demo...</span>
     </div>
   );
 }
