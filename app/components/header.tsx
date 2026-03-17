@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -7,17 +7,28 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import GradientText from "~/components/gradientText";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { effectRegistry } from "~/effects/registry";
 import { Separator } from "./ui/separator";
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedEffectId, setSelectedEffectId] = useState("demo");
 
   const handleValueChange = (value: string) => {
     setSelectedEffectId(value);
     navigate(`/demos/${value}`);
   };
+
+  useEffect(() => {
+    const pathParts = location.pathname.split("/");
+    const effectId = pathParts[pathParts.length - 1];
+    if (effectId && effectRegistry.some((effect) => effect.id === effectId)) {
+      setSelectedEffectId(effectId);
+    } else {
+      setSelectedEffectId("demo");
+    }
+  }, [location.pathname]);
 
   return (
     <header className="flex items-center justify-between bg-background h-16 relative">
