@@ -1,3 +1,4 @@
+import { DirectionalHover } from "./demos/direction-hover";
 import { MenuHover } from "./demos/menu-hover";
 import { TextParallaxEffect } from "./demos/text-parallax";
 import type { EffectDefinition } from "./types";
@@ -15,4 +16,10 @@ export const effectRegistry: EffectDefinition[] = [
     description: "Hover chu vao menu de thay hieu ung GSAP",
     component: MenuHover,
   },
+	{
+		id: "direction-hover",
+		label: "Direction Hover",
+		description: "Hover chu vao mot div de thay hieu ung GSAP theo huong chu di vao",
+		component: DirectionalHover,
+	}
 ];
