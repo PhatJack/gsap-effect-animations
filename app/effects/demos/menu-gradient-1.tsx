@@ -6,16 +6,25 @@ const MenuGradientOne = () => {
   const [menu, setMenu] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const overlayMenuRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
 
   useGSAP(
     () => {
+      const menuItems = gsap.utils.toArray(".menu-item");
       // trạng thái ban đầu
       gsap.set(menuRef.current, {
         y: "100%",
         skewY: -10,
         transformOrigin: "right top",
-        autoAlpha: 0,
+      });
+      gsap.set(overlayMenuRef.current, {
+        y: "-100%",
+        transformOrigin: "center top",
+      });
+      gsap.set(menuItems, {
+        y: 50,
+        opacity: 0,
       });
 
       // tạo timeline
@@ -73,11 +82,30 @@ const MenuGradientOne = () => {
           {
             y: "0%",
             skewY: 0,
-            autoAlpha: 1,
-            duration: 1,
+            duration: 1.25,
             ease: "power3.out",
           },
           0,
+        )
+        .to(
+          overlayMenuRef.current,
+          {
+            y: "0%",
+            duration: 0.75,
+            ease: "power3.out",
+          },
+          "<30%",
+        )
+        .to(
+          menuItems,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power2.out",
+          },
+          "-=0.3",
         );
     },
     { scope: containerRef },
@@ -134,12 +162,21 @@ const MenuGradientOne = () => {
             </div>
           </button>
         </div>
-      </div>
-
-      <div ref={menuRef} className="fixed inset-0 bg-red-400">
-        <div className="flex items-center justify-center h-full">
-          <h1 className="text-4xl text-white font-bold">Menu Content</h1>
+        <div ref={menuRef} className="fixed inset-0 bg-red-400 z-50">
+          <div className="flex items-center h-full p-20">
+            <div className="flex flex-col items-start gap-10">
+              {["Home", "About", "Services", "Contact"].map((item) => (
+                <span
+                  key={item}
+                  className="menu-item text-6xl uppercase text-white"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
+        <div ref={overlayMenuRef} className="fixed inset-0 bg-black/40 z-40" />
       </div>
     </>
   );
