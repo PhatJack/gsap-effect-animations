@@ -13,10 +13,14 @@ import { Separator } from "./ui/separator";
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [selectedEffectId, setSelectedEffectId] = useState("demo");
+  const [selectedEffectId, setSelectedEffectId] = useState("/");
 
   const handleValueChange = (value: string) => {
     setSelectedEffectId(value);
+		if(value === "/") {
+			navigate(`/`);
+			return;
+		}
     navigate(`/demos/${value}`);
   };
 
@@ -26,12 +30,12 @@ const Header = () => {
     if (effectId && effectRegistry.some((effect) => effect.id === effectId)) {
       setSelectedEffectId(effectId);
     } else {
-      setSelectedEffectId("demo");
+      setSelectedEffectId("/");
     }
   }, [location.pathname]);
 
   return (
-    <header className="flex items-center justify-between bg-background h-16 relative">
+    <header className="flex items-center justify-between bg-background h-16 relative z-50">
       <div className="flex items-center justify-between flex-1 p-4">
         <div className="">
           <GradientText
@@ -48,7 +52,7 @@ const Header = () => {
             <SelectValue placeholder="Select effect" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem key="demo" value="demo">
+            <SelectItem key="demo" value="/">
               All Demo
             </SelectItem>
             {effectRegistry.map((effect) => (

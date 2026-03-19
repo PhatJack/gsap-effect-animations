@@ -1,6 +1,7 @@
 import { DirectionalHover } from "./demos/direction-hover";
 import { MenuGradientOne } from "./demos/menu-gradient-1";
 import { MenuHover } from "./demos/menu-hover";
+import { ParallaxFooter } from "./demos/parallax-footer";
 import { TextParallaxEffect } from "./demos/text-parallax";
 import type { EffectDefinition } from "./types";
 
@@ -29,5 +30,11 @@ export const effectRegistry: EffectDefinition[] = [
     label: "Menu Gradient 1",
     description: "Hover chu vao menu de thay hieu ung gradient GSAP",
     component: MenuGradientOne,
+  },
+  {
+    id: "parallax-footer",
+    label: "Parallax Footer",
+    description: "Parallax chu theo cuon trang voi GSAP ScrollTrigger",
+    component: ParallaxFooter,
   },
 ];
