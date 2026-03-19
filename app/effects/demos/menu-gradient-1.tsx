@@ -50,7 +50,6 @@ const MenuGradientOne = () => {
           },
           0,
         )
-
         // text open -> hide
         .to(
           "#text-open",
@@ -62,7 +61,6 @@ const MenuGradientOne = () => {
           },
           0,
         )
-
         // text close -> show
         .fromTo(
           "#text-close",
@@ -75,7 +73,6 @@ const MenuGradientOne = () => {
           },
           0.1,
         )
-
         // menu overlay
         .to(
           menuRef.current,
@@ -105,7 +102,7 @@ const MenuGradientOne = () => {
             stagger: 0.1,
             ease: "power2.out",
           },
-          "-=0.3",
+          "<50%",
         );
     },
     { scope: containerRef },
