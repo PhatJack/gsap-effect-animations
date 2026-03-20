@@ -7,7 +7,7 @@ const PageLoadingOne = () => {
   const numberWrapperRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const sequence = [0, 25, 50, 75, 100];
+    const sequence = [0, 12, 22, 25, 50, 62, 67, 75, 82, 85, 99, 100];
     document.body.style.overflow = "hidden";
 
     const tl = gsap.timeline({
@@ -47,7 +47,7 @@ const PageLoadingOne = () => {
       {
         x: "110vw",
         rotate: 360,
-        duration: sequence.length * 0.75,
+        duration: sequence.length * 0.55,
         ease: "power2.inOut",
       },
       0,
@@ -63,7 +63,7 @@ const PageLoadingOne = () => {
         duration: 0.9,
         ease: "power4.inOut",
       },
-      "+=0.2",
+      ">",
     );
 
     return () => {
@@ -71,7 +71,7 @@ const PageLoadingOne = () => {
     };
   }, []);
 
-  const sequence = [0, 25, 50, 75, 100];
+  const sequence = [0, 12, 22, 25, 50, 62, 67, 75, 82, 85, 99, 100];
 
   return (
     <>
