@@ -2,6 +2,7 @@ import { DirectionalHover } from "./demos/direction-hover";
 import { MenuGradientOne } from "./demos/menu-gradient-1";
 import { MenuHover } from "./demos/menu-hover";
 import { PageLoadingOne } from "./demos/page-loading-1";
+import { PageLoadingTwo } from "./demos/page-loading-2";
 import { ParallaxFooter } from "./demos/parallax-footer";
 import { TextParallaxEffect } from "./demos/text-parallax";
 import type { EffectDefinition } from "./types";
@@ -43,5 +44,11 @@ export const effectRegistry: EffectDefinition[] = [
 		label: "Page Loading 1",
 		description: "Loading animation for the page",
 		component: PageLoadingOne,
-	}
+  },
+  {
+    id: "page-loading-2",
+    label: "Page Loading 2",
+    description: "Awwwards inspired cinematic page loading sequence",
+    component: PageLoadingTwo,
+  },
 ];
