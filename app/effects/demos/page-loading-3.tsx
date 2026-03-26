@@ -126,7 +126,7 @@ const PageLoadingThree = () => {
 					</div>
 				</div>
 				<div
-					className="pl3-blur absolute flex w-[200vw] rotate-[10deg] opacity-10"
+					className="pl3-blur absolute flex w-[200vw] rotate-10 opacity-10"
 					style={{ bottom: "10%" }}
 				>
 					<div

@@ -111,7 +111,7 @@ const PageLoadingFour = () => {
                   top: `${index * 100}%`, // stack vertically
                 }}
               >
-                <div className="w-[300px] h-[400px] overflow-hidden rounded-xl shadow-xl">
+                <div className="w-75 h-100 overflow-hidden rounded-xl shadow-xl">
                   <img src={src} className="w-full h-full object-cover" />
                 </div>
               </div>
