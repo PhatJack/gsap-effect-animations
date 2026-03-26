@@ -4,6 +4,8 @@ import { MenuHover } from "./demos/menu-hover";
 import { PageLoadingOne } from "./demos/page-loading-1";
 import { PageLoadingTwo } from "./demos/page-loading-2";
 import { PageLoadingThree } from "./demos/page-loading-3";
+import { PageLoadingFour } from "./demos/page-loading-4";
+import PageLoadingFive from "./demos/page-loading-5";
 import { ParallaxFooter } from "./demos/parallax-footer";
 import { TextParallaxEffect } from "./demos/text-parallax";
 import type { EffectDefinition } from "./types";
@@ -40,11 +42,11 @@ export const effectRegistry: EffectDefinition[] = [
     description: "Parallax chu theo cuon trang voi GSAP ScrollTrigger",
     component: ParallaxFooter,
   },
-	{
-		id: "page-loading-1",
-		label: "Page Loading 1",
-		description: "Loading animation for the page",
-		component: PageLoadingOne,
+  {
+    id: "page-loading-1",
+    label: "Page Loading 1",
+    description: "Loading animation for the page",
+    component: PageLoadingOne,
   },
   {
     id: "page-loading-2",
@@ -57,5 +59,17 @@ export const effectRegistry: EffectDefinition[] = [
     label: "Page Loading 3",
     description: "Circular Iris & Infinite Typography Portal",
     component: PageLoadingThree,
+  },
+  {
+    id: "page-loading-4",
+    label: "Page Loading 4",
+    description: "Sequential Image Stack & Immersive Full-Screen Zoom",
+    component: PageLoadingFour,
+  },
+  {
+    id: "page-loading-5",
+    label: "Page Loading 5",
+    description: "Aesthetic Image Carousel Loader",
+    component: PageLoadingFive,
   },
 ];
