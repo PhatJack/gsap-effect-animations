@@ -6,6 +6,7 @@ import { PageLoadingTwo } from "./demos/page-loading-2";
 import { PageLoadingThree } from "./demos/page-loading-3";
 import { PageLoadingFour } from "./demos/page-loading-4";
 import PageLoadingFive from "./demos/page-loading-5";
+import { PageLoadingSix } from "./demos/page-loading-6";
 import { ParallaxFooter } from "./demos/parallax-footer";
 import { TextParallaxEffect } from "./demos/text-parallax";
 import type { EffectDefinition } from "./types";
@@ -71,5 +72,11 @@ export const effectRegistry: EffectDefinition[] = [
     label: "Page Loading 5",
     description: "Aesthetic Image Carousel Loader",
     component: PageLoadingFive,
+  },
+  {
+    id: "page-loading-6",
+    label: "Page Loading 6",
+    description: "Dragon breath flame loader",
+    component: PageLoadingSix,
   },
 ];
