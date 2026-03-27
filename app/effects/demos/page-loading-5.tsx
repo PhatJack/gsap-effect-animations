@@ -9,8 +9,6 @@ const images = [
   "/loading/img-4.png",
   "/loading/img-5.png",
   "/loading/img-1.png",
-  "/loading/img-2.png",
-  "/loading/img-3.png",
 ];
 
 const PageLoadingFive = () => {
@@ -41,7 +39,7 @@ const PageLoadingFive = () => {
       tl.to(images, {
         scale: 1,
         duration: 1,
-        stagger: 0.2,
+        stagger: 0.35,
       }).to(images[images.length - 1], {
         width: "100vw",
         height: "93vh",
