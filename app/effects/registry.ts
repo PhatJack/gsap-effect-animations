@@ -1,4 +1,5 @@
 import { DirectionalHover } from "./demos/direction-hover";
+import { FlipEffect } from "./demos/flip";
 import ImagesFlowing from "./demos/images-flowing";
 import { MenuGradientOne } from "./demos/menu-gradient-1";
 import { MenuHover } from "./demos/menu-hover";
@@ -85,5 +86,11 @@ export const effectRegistry: EffectDefinition[] = [
     label: "Images Flowing",
     description: "Images flowing effect from left to right",
     component: ImagesFlowing,
+  },
+  {
+    id: "flip",
+    label: "Flip",
+    description: "Layout transition animations using GSAP Flip plugin",
+    component: FlipEffect,
   },
 ];

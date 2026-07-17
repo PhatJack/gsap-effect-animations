@@ -38,3 +38,4 @@ pnpm run typecheck        # React-router generates types for routes, this comman
 - Always use `pnpm` for package management
 - Always use `tsx` for TypeScript files
 - Always use `ts` for TypeScript files
+- Always read `gsap skills` before coding with GSAP
