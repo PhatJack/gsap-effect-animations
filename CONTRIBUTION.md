@@ -23,4 +23,4 @@ Thank you for considering contributing!
 
 ## Questions?
 
-Feel free to open a discussion or contact the maintainers at [email/link].
+Feel free to open a discussion or contact the maintainers at [tienphat.ng693@gmail.com](mailto:tienphat.ng693@gmail.com).
