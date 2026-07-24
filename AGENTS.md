@@ -21,3 +21,21 @@ pnpm run build            # Create production build
 pnpm run preview          # Preview production build
 pnpm run typecheck        # React-router generates types for routes, this command checks for type errors in the generated types
 ```
+
+## File naming convention
+
+- Use kebab-case for file names
+- Use PascalCase for component names
+- Use camelCase for function names
+- Use UPPER_SNAKE_CASE for constants
+- Use snake_case for variables
+- Use camelCase for hooks
+
+## Workflow
+
+- Run `pnpm run typecheck` after making changes
+- Commit messages follow `.github/commit-instructions.md` or conventional commits format
+- Always use `pnpm` for package management
+- Always use `tsx` for TypeScript files
+- Always use `ts` for TypeScript files
+- Always read `gsap skills` before coding with GSAP

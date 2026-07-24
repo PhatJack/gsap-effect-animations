@@ -1,4 +1,6 @@
 import { DirectionalHover } from "./demos/direction-hover";
+import { FlipEffect } from "./demos/flip";
+import ImagesFlowing from "./demos/images-flowing";
 import { MenuGradientOne } from "./demos/menu-gradient-1";
 import { MenuHover } from "./demos/menu-hover";
 import { PageLoadingOne } from "./demos/page-loading-1";
@@ -78,5 +80,17 @@ export const effectRegistry: EffectDefinition[] = [
     label: "Page Loading 6",
     description: "Dragon breath flame loader",
     component: PageLoadingSix,
+  },
+  {
+    id: "images-flowing",
+    label: "Images Flowing",
+    description: "Images flowing effect from left to right",
+    component: ImagesFlowing,
+  },
+  {
+    id: "flip",
+    label: "Flip",
+    description: "Layout transition animations using GSAP Flip plugin",
+    component: FlipEffect,
   },
 ];
